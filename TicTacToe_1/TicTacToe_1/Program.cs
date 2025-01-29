@@ -214,15 +214,33 @@ class GFG
     public static void Main(String[] args)
     {
         // Original implementation is finding the optimal move for 'x'
-        char[,] board = {{ 'x', 'o', 'x' },
-                         { 'o', 'o', 'x' },
+        char[,] board = {{ '_', '_', '_' },
+                         { '_', '_', '_' },
                          { '_', '_', '_' }};
+
+        Console.Write("{0}\n", board[0,1]); // 
+        Console.Write("{0}\n", board[1,0]);
 
         Move bestMove = findBestMove(board, 'x', 'o');
 
         Console.Write("The Optimal Move is :\n");
         Console.Write("ROW: {0} COL: {1}\n\n",
                 bestMove.row, bestMove.col);
+
+        Console.Write("{0}\n", board[bestMove.row, bestMove.col]);
+        board[bestMove.row, bestMove.col] = 'x';
+        Console.Write("{0}\n", board[bestMove.row, bestMove.col]);
+
+        bestMove = findBestMove(board, 'o', 'x');
+
+        Console.Write("The Optimal Move is :\n");
+        Console.Write("ROW: {0} COL: {1}\n\n",
+                bestMove.row, bestMove.col);
+
+        Console.Write("{0}\n", board[bestMove.row, bestMove.col]);
+        board[bestMove.row, bestMove.col] = 'o';
+        Console.Write("{0}\n", board[bestMove.row, bestMove.col]);
+
     }
 }
 
