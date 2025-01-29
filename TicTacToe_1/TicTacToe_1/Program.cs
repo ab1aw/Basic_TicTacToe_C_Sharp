@@ -9,7 +9,7 @@ class GFG
 {
     class Move
     {
-        public int row, col;
+        public int row, col, move;
     };
 
     // Original implementation had pre-assigned players.
@@ -170,6 +170,7 @@ class GFG
         Move bestMove = new Move();
         bestMove.row = -1;
         bestMove.col = -1;
+        bestMove.move = 0;
 
         // Traverse all cells, evaluate minimax function 
         // for all empty cells. And return the cell 
@@ -189,6 +190,7 @@ class GFG
                     int moveVal = minimax(board, 0, false, player, opponent);
 
                     // Undo the move 
+                    // Do we want to remove this or update it per-player?
                     board[i, j] = '_';
 
                     // If the value of the current move is 
@@ -206,6 +208,7 @@ class GFG
 
         Console.Write("The value of the best Move " +
                             "is : {0}\n\n", bestVal);
+        bestMove.move = bestVal;
 
         return bestMove;
     }
@@ -236,22 +239,35 @@ class GFG
 
         drawTheBoard(board);
 
-        for (int moveNum = 0; moveNum < 4; moveNum++)
+        // If the computer is making the first move, then the position should be random.
+        int optimalScore = 0;
+
+        for (int moveNum = 0; optimalScore == 0; moveNum++)
         {
             Move bestMove = findBestMove(board, 'x', 'o');
-
+            optimalScore = bestMove.move;
             Console.Write("The Optimal Move is :\n");
-            Console.Write("ROW: {0} COL: {1}\n\n",
-                    bestMove.row, bestMove.col);
+            Console.Write("ROW: {0} COL: {1} : {2}\n\n",
+                    bestMove.row, bestMove.col, bestMove.move);
+
+            if (optimalScore != 0)
+            {
+                break;
+            }
 
             board[bestMove.row, bestMove.col] = 'x';
             drawTheBoard(board);
 
             bestMove = findBestMove(board, 'o', 'x');
-
+            optimalScore = bestMove.move;
             Console.Write("The Optimal Move is :\n");
-            Console.Write("ROW: {0} COL: {1}\n\n",
-                    bestMove.row, bestMove.col);
+            Console.Write("ROW: {0} COL: {1} : {2}\n\n",
+                    bestMove.row, bestMove.col, bestMove.move);
+
+            if (optimalScore != 0)
+            {
+                break;
+            }
 
             board[bestMove.row, bestMove.col] = 'o';
             drawTheBoard(board);
