@@ -12,7 +12,8 @@ class GFG
         public int row, col;
     };
 
-    static char player = 'x', opponent = 'o';
+    // Original implementation had pre-assigned players.
+    //static char player = 'x', opponent = 'o';
 
     // This function returns true if there are moves 
     // remaining on the board. It returns false if 
@@ -28,7 +29,7 @@ class GFG
 
     // This is the evaluation function as discussed 
     // in the previous article ( http://goo.gl/sJgv68 ) 
-    static int evaluate(char[,] b)
+    static int evaluate(char[,] b, char player, char opponent)
     {
         // Checking for Rows for X or O victory. 
         for (int row = 0; row < 3; row++)
@@ -82,9 +83,10 @@ class GFG
     // the possible ways the game can go and returns 
     // the value of the board 
     static int minimax(char[,] board,
-                    int depth, Boolean isMax)
+                    int depth, Boolean isMax,
+                    char player, char opponent)
     {
-        int score = evaluate(board);
+        int score = evaluate(board, player, opponent);
 
         // If Maximizer has won the game 
         // return his/her evaluated score 
@@ -120,7 +122,7 @@ class GFG
                         // Call minimax recursively and choose 
                         // the maximum value 
                         best = Math.Max(best, minimax(board,
-                                        depth + 1, !isMax));
+                                        depth + 1, !isMax, player, opponent));
 
                         // Undo the move 
                         board[i, j] = '_';
@@ -149,7 +151,7 @@ class GFG
                         // Call minimax recursively and choose 
                         // the minimum value 
                         best = Math.Min(best, minimax(board,
-                                        depth + 1, !isMax));
+                                        depth + 1, !isMax, player, opponent));
 
                         // Undo the move 
                         board[i, j] = '_';
@@ -162,7 +164,7 @@ class GFG
 
     // This will return the best possible 
     // move for the player 
-    static Move findBestMove(char[,] board)
+    static Move findBestMove(char[,] board, char player, char opponent)
     {
         int bestVal = -1000;
         Move bestMove = new Move();
@@ -184,7 +186,7 @@ class GFG
 
                     // compute evaluation function for this 
                     // move. 
-                    int moveVal = minimax(board, 0, false);
+                    int moveVal = minimax(board, 0, false, player, opponent);
 
                     // Undo the move 
                     board[i, j] = '_';
@@ -211,11 +213,12 @@ class GFG
     // Driver code 
     public static void Main(String[] args)
     {
+        // Original implementation is finding the optimal move for 'x'
         char[,] board = {{ 'x', 'o', 'x' },
-                    { 'o', 'o', 'x' },
-                    { '_', '_', '_' }};
+                         { 'o', 'o', 'x' },
+                         { '_', '_', '_' }};
 
-        Move bestMove = findBestMove(board);
+        Move bestMove = findBestMove(board, 'x', 'o');
 
         Console.Write("The Optimal Move is :\n");
         Console.Write("ROW: {0} COL: {1}\n\n",
