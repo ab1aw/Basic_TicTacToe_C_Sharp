@@ -210,6 +210,19 @@ class GFG
         return bestMove;
     }
 
+    static void drawTheBoard(char[,] theBoard)
+    {
+        for (int row = 0; row < 3; row++)
+        {
+            for (int col = 0; col < 3; col++)
+            {
+                Console.Write("{0} ", theBoard[row, col]);
+            }
+            Console.Write("\n");
+        }
+        Console.Write("\n\n");
+    }
+
     // Driver code 
     public static void Main(String[] args)
     {
@@ -218,8 +231,7 @@ class GFG
                          { '_', '_', '_' },
                          { '_', '_', '_' }};
 
-        Console.Write("{0}\n", board[0,1]); // 
-        Console.Write("{0}\n", board[1,0]);
+        drawTheBoard(board);
 
         Move bestMove = findBestMove(board, 'x', 'o');
 
@@ -227,9 +239,8 @@ class GFG
         Console.Write("ROW: {0} COL: {1}\n\n",
                 bestMove.row, bestMove.col);
 
-        Console.Write("{0}\n", board[bestMove.row, bestMove.col]);
         board[bestMove.row, bestMove.col] = 'x';
-        Console.Write("{0}\n", board[bestMove.row, bestMove.col]);
+        drawTheBoard(board);
 
         bestMove = findBestMove(board, 'o', 'x');
 
@@ -237,9 +248,8 @@ class GFG
         Console.Write("ROW: {0} COL: {1}\n\n",
                 bestMove.row, bestMove.col);
 
-        Console.Write("{0}\n", board[bestMove.row, bestMove.col]);
         board[bestMove.row, bestMove.col] = 'o';
-        Console.Write("{0}\n", board[bestMove.row, bestMove.col]);
+        drawTheBoard(board);
 
     }
 }
