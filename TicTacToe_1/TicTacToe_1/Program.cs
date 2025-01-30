@@ -4,6 +4,7 @@
 // next optimal move for a player 
 using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
 class GFG
 {
@@ -241,10 +242,11 @@ class GFG
 
         // If the computer is making the first move, then the position should be random.
         int optimalScore = 0;
+        char[] charSeparators = new char[] { ' ' };
 
         for (int moveNum = 0; optimalScore == 0; moveNum++)
         {
-            int a, b;
+            int a = -1, b = -1;
             do
             {
                 Console.Write("Choose a valid move (row column)....\n");
@@ -253,7 +255,17 @@ class GFG
                 // This implementation is very specific with regard to input.
                 // Input must be <a b> with no leading whitespace and only a single space
                 // between the 'a' and the 'b' values.
-                string[] tokens = Console.ReadLine().Split();
+
+                string[] tokens;
+
+                string line = Console.ReadLine();
+
+                if ( (line == null) || (line.Length == 0) )
+                {
+                    continue;
+                }
+
+                tokens = line.Trim().Split(charSeparators, StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
 
                 //Parse element 0
                 a = int.Parse(tokens[0]);
