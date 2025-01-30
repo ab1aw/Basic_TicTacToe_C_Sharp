@@ -244,35 +244,43 @@ class GFG
 
         for (int moveNum = 0; optimalScore == 0; moveNum++)
         {
-            Move bestMove = findBestMove(board, 'x', 'o');
-            optimalScore = bestMove.move;
-            Console.Write("The Optimal Move is :\n");
-            Console.Write("ROW: {0} COL: {1} : {2}\n\n",
-                    bestMove.row, bestMove.col, bestMove.move);
-
-            if (optimalScore != 0)
+            int a, b;
+            do
             {
-                break;
-            }
+                Console.Write("Choose a valid move....\n");
 
-            board[bestMove.row, bestMove.col] = 'x';
+                //Read line, and split it by whitespace into an array of strings
+                string[] tokens = Console.ReadLine().Split();
+
+                //Parse element 0
+                a = int.Parse(tokens[0]);
+
+                //Parse element 1
+                b = int.Parse(tokens[1]);
+
+                // Check validity of the move.
+
+            } while (((a < 0) || (a > 2)) || ((b < 0) || (b > 2)) || (board[a, b] != '_'));
+
+            board[a, b] = 'x';
             drawTheBoard(board);
 
-            bestMove = findBestMove(board, 'o', 'x');
+            Move bestMove = findBestMove(board, 'o', 'x');
             optimalScore = bestMove.move;
             Console.Write("The Optimal Move is :\n");
             Console.Write("ROW: {0} COL: {1} : {2}\n\n",
                     bestMove.row, bestMove.col, bestMove.move);
-
-            if (optimalScore != 0)
-            {
-                break;
-            }
 
             board[bestMove.row, bestMove.col] = 'o';
             drawTheBoard(board);
+
+            if (optimalScore != 0)
+            {
+                break;
+            }
         }
 
+        Console.Write("GAME OVER!\n");
     }
 }
 
