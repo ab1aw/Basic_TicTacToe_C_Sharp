@@ -247,9 +247,12 @@ class GFG
             int a, b;
             do
             {
-                Console.Write("Choose a valid move....\n");
+                Console.Write("Choose a valid move (row column)....\n");
 
-                //Read line, and split it by whitespace into an array of strings
+                // Read line, and split it by whitespace into an array of strings.
+                // This implementation is very specific with regard to input.
+                // Input must be <a b> with no leading whitespace and only a single space
+                // between the 'a' and the 'b' values.
                 string[] tokens = Console.ReadLine().Split();
 
                 //Parse element 0
