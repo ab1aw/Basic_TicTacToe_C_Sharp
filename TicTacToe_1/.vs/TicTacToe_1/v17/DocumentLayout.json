@@ -1,7 +1,15 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Users\\Mike Polia\\DotNetStuff\\TicTacToe\\TicTacToe_1\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{08DE0218-E563-4911-BF05-C6BB74C3E663}|..\\..\\Tic-Tac-Toe_in_Csharp\\MiniMax.Tests\\MiniMax.Tests.csproj|c:\\users\\mike polia\\dotnetstuff\\tic-tac-toe_in_csharp\\minimax.tests\\minimax_test1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{29AB5B8D-920E-49AB-BB34-F7DBC18008AB}|TicTacToe_1\\TicTacToe_1.csproj|c:\\users\\mike polia\\dotnetstuff\\tictactoe\\tictactoe_1\\tictactoe_1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{29AB5B8D-920E-49AB-BB34-F7DBC18008AB}|TicTacToe_1\\TicTacToe_1.csproj|solutionrelative:tictactoe_1\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
@@ -9,11 +17,37 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 2,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\Mike Polia\\DotNetStuff\\TicTacToe\\TicTacToe_1\\TicTacToe_1\\Program.cs",
+              "RelativeDocumentMoniker": "TicTacToe_1\\Program.cs",
+              "ToolTip": "C:\\Users\\Mike Polia\\DotNetStuff\\TicTacToe\\TicTacToe_1\\TicTacToe_1\\Program.cs",
+              "RelativeToolTip": "TicTacToe_1\\Program.cs",
+              "ViewState": "AgIAAPYAAAAAAAAAAAAwwAYBAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-31T18:52:04.443Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MiniMax_test1.cs",
+              "DocumentMoniker": "C:\\Users\\Mike Polia\\DotNetStuff\\Tic-Tac-Toe_in_Csharp\\MiniMax.Tests\\MiniMax_test1.cs",
+              "RelativeDocumentMoniker": "..\\..\\Tic-Tac-Toe_in_Csharp\\MiniMax.Tests\\MiniMax_test1.cs",
+              "ToolTip": "C:\\Users\\Mike Polia\\DotNetStuff\\Tic-Tac-Toe_in_Csharp\\MiniMax.Tests\\MiniMax_test1.cs",
+              "RelativeToolTip": "..\\..\\Tic-Tac-Toe_in_Csharp\\MiniMax.Tests\\MiniMax_test1.cs",
+              "ViewState": "AgIAABcAAAAAAAAAAAAwwCcAAAAvAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-31T18:54:03.022Z",
+              "EditorCaption": ""
             }
           ]
         }
