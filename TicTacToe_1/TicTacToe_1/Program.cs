@@ -286,13 +286,21 @@ class GFG
             Console.Write("ROW: {0} COL: {1} : {2}\n\n",
                     bestMove.row, bestMove.col, bestMove.move);
 
-            board[bestMove.row, bestMove.col] = 'o';
-            drawTheBoard(board);
-
-            if (optimalScore != 0)
+            if (optimalScore == 10)
             {
+                Console.Write("COMPUTER WON!\n");
                 break;
             }
+
+            if (optimalScore == -1000)
+            {
+                Console.Write("DRAW!\n");
+                break;
+            }
+
+            board[bestMove.row, bestMove.col] = 'o';
+
+            drawTheBoard(board);
         }
 
         Console.Write("GAME OVER!\n");
